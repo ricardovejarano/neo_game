@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'node_modules/bulma/bulma';
+@import 'assets/bootstrap';
 
 
 body {
@@ -8,8 +9,29 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;	
-	background-image: url(assets/bg-main.png);
+	background-image: url(assets/background.jpg);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+	app-root{
+		display: block;
+		width: 100%;
+		height: 100%;
+		#premios{
+			min-height: 100px;
+			background-image: url(assets/cajonpremios.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;		
+		}
+		#ticket{
+			background-image: url(assets/ticket.svg);
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+			.form-control{
+				max-width: 2rem;
+			}
+		}
+	}
 }
