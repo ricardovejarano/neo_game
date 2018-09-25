@@ -1,5 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import * as $ from 'jquery';
+// import * as $ from 'jquery';
+
+declare var $: any;
 
 
 @Component({
@@ -42,6 +44,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getWinnerNumbers();
+    this.jqueryFunction();
+  }
+
+  jqueryFunction() {
     $(document).ready(function () {
       const option = {
         speed: 10,
@@ -57,10 +63,13 @@ export class AppComponent implements OnInit {
           console.log('stop');
         }
       };
+      
       const rouletter = $('div.roulette');
-      $('#playButton').click(function () {
-        rouletter.rou(option);
-      });
+       $('#playButton').click(function () {
+        $('div.roulette').roulette(option); 
+        // rouletter.roulette(option);
+      // rouletter.roulette(option);
+       });
     });
   }
 

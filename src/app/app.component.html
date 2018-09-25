@@ -1,4 +1,5 @@
 <main class="container-fluid h-100">
+
 	<div class="row justify-content-center h-100">
 
 		<div class="col-md-3 align-self-center">
@@ -28,9 +29,8 @@
 						 type="number" id="numero5" class="form-control col mr-2">
 					</div>
 					<div id="btnplay" class="input-group mt-5">
-						<button #In6 [disabled]="!playForm.form.valid"  id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
-						<button type="button" data-toggle="modal" data-target="#exampleModalCenter"
-						class="btn btn-block btn-success mt-5">
+						<button #In6 [disabled]="!playForm.form.valid" id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
+						<button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-block btn-success mt-5">
 							Administración
 						</button>
 					</div>
@@ -67,24 +67,21 @@
 					<form (ngSubmit)="saveNumbers()" #numberForm="ngForm">
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">Numero uno:</label>
-							<input pattern="[0-9]*" maxlength="5" minlength="5" id="int9"
-							type="number" class="form-control col mr-2"
+							<input pattern="[0-9]*" maxlength="5" minlength="5" id="int9" type="number" class="form-control col mr-2"
 							 [(ngModel)]="winnerNumber1" name="winnerNumber1" type="text" id="recipient-name">
 						</div>
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">Numero dos:</label>
-							<input pattern="[0-9]*" maxlength="5" minlength="5" 
-							type="number" class="form-control col mr-2"
-							[(ngModel)]="winnerNumber2" name="winnerNumber2" type="text" id="recipient-name">
+							<input pattern="[0-9]*" maxlength="5" minlength="5" type="number" class="form-control col mr-2" [(ngModel)]="winnerNumber2"
+							 name="winnerNumber2" type="text" id="recipient-name">
 						</div>
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">Numero tres:</label>
-							<input pattern="[0-9]*" maxlength="5" minlength="5" 
-							type="number" class="form-control col mr-2"
-							 [(ngModel)]="winnerNumber3" name="winnerNumber3" type="text" id="recipient-name">
+							<input pattern="[0-9]*" maxlength="5" minlength="5" type="number" class="form-control col mr-2" [(ngModel)]="winnerNumber3"
+							 name="winnerNumber3" type="text" id="recipient-name">
 						</div>
 						<div class="form-group">
-							<button type="submit"  [disabled]="!numberForm.form.valid"  class="btn btn-block btn-success mt-5">Guardar Numeros</button>
+							<button type="submit" [disabled]="!numberForm.form.valid" class="btn btn-block btn-success mt-5">Guardar Numeros</button>
 						</div>
 					</form>
 				</div>

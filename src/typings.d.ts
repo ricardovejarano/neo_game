@@ -4,9 +4,8 @@ interface NodeModule {
   id: string;
 }
 
-
 interface JQuery {
-  <roulette>(options?: any): any;
+  roulette(options?: any): any;
 }
 
 
