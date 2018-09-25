@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
         stopImageNumber: 0,
       };
       $('div.roulette')
-      .roulette('option', this.option);
+        .roulette('option', this.option);
     });
   }
 
@@ -105,10 +105,13 @@ export class AppComponent implements OnInit {
       }, 7000);
 
     } else {
+
+      const random = Math.floor(Math.random() * (2 - 1 + 2) + 1);
+
       this.option = {
         speed: 15,
         duration: 7,
-        stopImageNumber: 2,
+        stopImageNumber: random,
       };
 
       $('div.roulette')
@@ -121,11 +124,6 @@ export class AppComponent implements OnInit {
       }, 7000);
       console.log('Numero ganador!!!');
     }
-    this.numbrer1 = '';
-    this.numbrer2 = '';
-    this.numbrer3 = '';
-    this.numbrer4 = '';
-    this.numbrer5 = '';
   }
 
   winRoulete() {
@@ -143,7 +141,11 @@ export class AppComponent implements OnInit {
         if (!this.numbrer2) {
           this.input2.nativeElement.focus();
         } else {
+          // this.numbrer1 = '';
           this.numbrer2 = '';
+          this.numbrer3 = '';
+          this.numbrer4 = '';
+          this.numbrer5 = '';
           this.input2.nativeElement.focus();
         }
         break;
