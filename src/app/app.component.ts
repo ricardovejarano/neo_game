@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -31,9 +32,29 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-        console.log('El valor de storage es: ', localStorage.getItem('prueba'));
+      console.log('El valor de storage es: ', localStorage.getItem('prueba'));
     }, 4000);
-    
+
+    $(document).ready(function () {
+      const option = {
+        speed: 10,
+        duration: 3,
+        stopImageNumber: 2,
+        startCallback: function () {
+          console.log('start');
+        },
+        slowDownCallback: function () {
+          console.log('slowDown');
+        },
+        stopCallback: function ($stopElm) {
+          console.log('stop');
+        }
+      };
+      const rouletter = $('div.roulette');
+      $('#playButton').click(function () {
+        rouletter.roulette(option);
+      });
+    });
   }
 
   onSearchChange(value: number) {

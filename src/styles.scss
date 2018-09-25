@@ -18,11 +18,21 @@ body {
 		width: 100%;
 		height: 100%;
 		#premios{
-			min-height: 100px;
+			height: 80px;
+			width: 320px;
+			margin: 10px auto; 
 			background-image: url(assets/cajonpremios.svg);
 			background-repeat: no-repeat;
 			background-position: center;
-			background-size: contain;		
+			background-size: contain;
+			.roulette{
+				width: 100%;
+				height: 75px;
+			}
+			.prize{
+				text-align: center;
+				line-height: 75px;
+			}
 		}
 		#ticket{
 			background-image: url(assets/ticket.svg);
@@ -31,6 +41,14 @@ body {
 			background-size: cover;
 			.form-control{
 		    height: 3rem;
+			}
+	    input[type='number']::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+			}
+			input[type='number']::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;	
 			}
 			#btnplay{
 				border-top: 1px dashed #999;
