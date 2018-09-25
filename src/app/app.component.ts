@@ -20,6 +20,12 @@ export class AppComponent implements OnInit {
   numbrer5;
   completeCode = '';
 
+  // Variables de premio
+  premio1 = 'Sigue intentando 1';
+  premio2 = 'Sigue intentando 2';
+  premio3 = 'Viaje a Dubai';
+  premio4 = 'Viaje a Buga';
+
   constructor() {
 
   }
@@ -75,8 +81,8 @@ export class AppComponent implements OnInit {
   }
 
   play() {
-    this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() + 
-    this.numbrer4.toString() + this.numbrer5.toString();
+    this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
+      this.numbrer4.toString() + this.numbrer5.toString();
     console.log('Número a sortear', this.completeCode);
   }
 
