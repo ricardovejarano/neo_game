@@ -25,10 +25,10 @@
 						<input [(ngModel)]="numbrer4" name="numbrer4" required #In4 pattern="[0-9]*" maxlength="1" (input)="onSearchChange(3)"
 						 type="number" id="numero4" class="form-control col mr-2">
 						<input [(ngModel)]="numbrer5" name="numbrer5" required #In5 pattern="[0-9]*" maxlength="1" (input)="onSearchChange(4)"
-						 type="number" id="numero5" class="form-control col">
+						 type="number" id="numero5" class="form-control col mr-2">
 					</div>
 					<div id="btnplay" class="input-group mt-5">
-						<button [disabled]="!playForm.form.valid"  id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
+						<button #In6 [disabled]="!playForm.form.valid"  id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
 						<button type="button" data-toggle="modal" data-target="#exampleModalCenter"
 						class="btn btn-block btn-success mt-5">
 							Administración

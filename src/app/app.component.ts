@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   @ViewChild('In3') input3: ElementRef;
   @ViewChild('In4') input4: ElementRef;
   @ViewChild('In5') input5: ElementRef;
+  @ViewChild('In6') btn6: ElementRef;
   numbrer1;
   numbrer2;
   numbrer3;
@@ -113,6 +114,7 @@ export class AppComponent implements OnInit {
         }
         break;
       case 4:
+        this.btn6.nativeElement.focus();
         break;
     }
   }
@@ -147,6 +149,12 @@ export class AppComponent implements OnInit {
       console.log('Numero ganador!!!');
       alert('GANASTE!!');
     }
+
+    this.numbrer1 = '';
+    this.numbrer2 = '';
+    this.numbrer3 = '';
+    this.numbrer4 = '';
+    this.numbrer5 = '';
   }
 
 }
