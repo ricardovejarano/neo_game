@@ -49,22 +49,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getWinnerNumbers();
-    // this.jqueryFunction();
+    this.jqueryFunction();
   }
 
   jqueryFunction() {
     $(document).ready(function () {
       this.option = {
-        speed: 2,
-        duration: 10,
-        stopImageNumber: this.stopImageNumberDinamyc,
+        speed: 15,
+        duration: 7,
+        stopImageNumber: 0,
       };
-
-
-      $('#playButton').click(function () {
-        // $('div.roulette').roulette(this.option);
-
-      });
+      $('div.roulette')
+      .roulette('option', this.option);
     });
   }
 
@@ -103,7 +99,7 @@ export class AppComponent implements OnInit {
         .roulette('option', this.option)
         .roulette('start');
       setTimeout(() => {
-        $('div.roulette').roulette('stop');
+        // $('div.roulette').roulette('stop');
         this.isPlay = false;
         this.isLoser = true;
       }, 7000);
@@ -119,10 +115,10 @@ export class AppComponent implements OnInit {
         .roulette('option', this.option)
         .roulette('start');
       setTimeout(() => {
-        $('div.roulette').roulette('stop');
+        // $('div.roulette').roulette('stop');
         this.isPlay = false;
         this.isWinner = true;
-      }, 5000);
+      }, 7000);
       console.log('Numero ganador!!!');
     }
     this.numbrer1 = '';
