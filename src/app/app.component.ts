@@ -26,11 +26,14 @@ export class AppComponent implements OnInit {
   premio4 = 'Viaje a Buga';
 
   constructor() {
-
+    // localStorage.setItem('prueba', 'valor');
   }
 
   ngOnInit() {
-
+    setTimeout(() => {
+        console.log('El valor de storage es: ', localStorage.getItem('prueba'));
+    }, 4000);
+    
   }
 
   onSearchChange(value: number) {
