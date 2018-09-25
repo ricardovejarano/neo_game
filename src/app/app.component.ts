@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   numbrer3;
   numbrer4;
   numbrer5;
+  completeCode = '';
 
   constructor() {
 
@@ -50,12 +51,13 @@ export class AppComponent implements OnInit {
         break;
       case 4:
         break;
-
     }
   }
 
   play() {
-    console.log('Se sortea al juego');
+    this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() + 
+    this.numbrer4.toString() + this.numbrer5.toString();
+    console.log('Número a sortear', this.completeCode);
   }
 
 }
