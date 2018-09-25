@@ -12,6 +12,11 @@ export class AppComponent implements OnInit {
   @ViewChild('In3') input3: ElementRef;
   @ViewChild('In4') input4: ElementRef;
   @ViewChild('In5') input5: ElementRef;
+  numbrer1;
+  numbrer2;
+  numbrer3;
+  numbrer4;
+  numbrer5;
 
   constructor() {
 
@@ -24,17 +29,24 @@ export class AppComponent implements OnInit {
   onSearchChange(value: number) {
     switch (value) {
       case 0:
-      console.log('Entra', value);
-        this.input2.nativeElement.focus();
+        if (!this.numbrer2) {
+          this.input2.nativeElement.focus();
+        }
         break;
       case 1:
-        this.input3.nativeElement.focus();
+        if (!this.numbrer3) {
+          this.input3.nativeElement.focus();
+        }
         break;
       case 2:
-        this.input4.nativeElement.focus();
+        if (!this.numbrer4) {
+          this.input4.nativeElement.focus();
+        }
         break;
       case 3:
-        this.input5.nativeElement.focus();
+        if (!this.numbrer5) {
+          this.input5.nativeElement.focus();
+        }
         break;
       case 4:
         break;
