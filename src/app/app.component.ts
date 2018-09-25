@@ -114,6 +114,7 @@ export class AppComponent implements OnInit {
         }
         break;
       case 4:
+        console.log('ENTRA');
         this.btn6.nativeElement.focus();
         break;
     }
