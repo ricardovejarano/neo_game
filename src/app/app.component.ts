@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import * as $ from 'jquery';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,21 +21,27 @@ export class AppComponent implements OnInit {
   numbrer5;
   completeCode = '';
 
+  // Contraseña de administrador
+  adminPass = '';
+  correctAdminPass = 'admin';
+  flagAdmin = false;
+
   // Variables de premio
   premio1 = 'Sigue intentando 1';
   premio2 = 'Sigue intentando 2';
   premio3 = 'Viaje a Dubai';
   premio4 = 'Viaje a Buga';
 
+  // Numeros ganadores
+  winnerNumber1 = '';
+  winnerNumber2 = '';
+  winnerNumber3 = '';
+
   constructor() {
-    // localStorage.setItem('prueba', 'valor');
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      console.log('El valor de storage es: ', localStorage.getItem('prueba'));
-    }, 4000);
-
+    this.getWinnerNumbers();
     $(document).ready(function () {
       const option = {
         speed: 10,
@@ -51,43 +58,81 @@ export class AppComponent implements OnInit {
         }
       };
       const rouletter = $('div.roulette');
-      $('#playButton').click(function () {
-        // rouletter.roulette(option);
-      });
+      // $('#playButton').click(function () {
+      // rouletter.roulette(option);
+      // });
     });
+  }
+
+  getWinnerNumbers() {
+    if (localStorage.getItem('winner1')) {
+      this.winnerNumber1 = localStorage.getItem('winner1');
+    }
+
+    if (localStorage.getItem('winner2')) {
+      this.winnerNumber2 = localStorage.getItem('winner2');
+    }
+
+    if (localStorage.getItem('winner3')) {
+      this.winnerNumber3 = localStorage.getItem('winner3');
+    }
   }
 
   onSearchChange(value: number) {
     switch (value) {
       case 0:
-        if (!this.numbrer2) {
-          this.input2.nativeElement.focus();
-        }
+        // if (!this.numbrer2) {
+        this.input2.nativeElement.focus();
+        //  }
         break;
       case 1:
-        if (!this.numbrer3) {
-          this.input3.nativeElement.focus();
-        }
+        //  if (!this.numbrer3) {
+        this.input3.nativeElement.focus();
+        // }
         break;
       case 2:
-        if (!this.numbrer4) {
-          this.input4.nativeElement.focus();
-        }
+        //   if (!this.numbrer4) {
+        this.input4.nativeElement.focus();
+        //   }
         break;
       case 3:
-        if (!this.numbrer5) {
-          this.input5.nativeElement.focus();
-        }
+        //   if (!this.numbrer5) {
+        this.input5.nativeElement.focus();
+        //  }
         break;
       case 4:
         break;
     }
   }
 
+  verifyPass() {
+    if (this.adminPass === this.correctAdminPass) {
+      this.flagAdmin = true;
+    } else {
+      alert('Contraseña incorrecta');
+    }
+  }
+
+  saveNumbers() {
+    localStorage.setItem('winner1', this.winnerNumber1);
+    localStorage.setItem('winner2', this.winnerNumber2);
+    localStorage.setItem('winner3', this.winnerNumber3);
+    alert('Numeros guardados satisfactoriamente');
+    this.adminPass = '';
+    this.flagAdmin = false;
+  }
+
   play() {
     this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
       this.numbrer4.toString() + this.numbrer5.toString();
-    console.log('Número a sortear', this.completeCode);
+      console.log(this.completeCode);
+      console.log(this.winnerNumber1, this.winnerNumber2, this.winnerNumber3);
+    if (this.completeCode !== this.winnerNumber1.toString() && this.completeCode !== this.winnerNumber2.toString() &&
+      this.completeCode !== this.winnerNumber3.toString()) {
+      console.log('Sigue intentando');
+    } else {
+      console.log('Numero ganador!!!');
+    }
   }
 
 }
