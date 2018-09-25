@@ -58,9 +58,9 @@ export class AppComponent implements OnInit {
         }
       };
       const rouletter = $('div.roulette');
-      // $('#playButton').click(function () {
-      // rouletter.roulette(option);
-      // });
+      $('#playButton').click(function () {
+        rouletter.rou(option);
+      });
     });
   }
 
@@ -68,11 +68,9 @@ export class AppComponent implements OnInit {
     if (localStorage.getItem('winner1')) {
       this.winnerNumber1 = localStorage.getItem('winner1');
     }
-
     if (localStorage.getItem('winner2')) {
       this.winnerNumber2 = localStorage.getItem('winner2');
     }
-
     if (localStorage.getItem('winner3')) {
       this.winnerNumber3 = localStorage.getItem('winner3');
     }
@@ -148,7 +146,6 @@ export class AppComponent implements OnInit {
       console.log('Numero ganador!!!');
       alert('GANASTE!!');
     }
-
     this.numbrer1 = '';
     this.numbrer2 = '';
     this.numbrer3 = '';

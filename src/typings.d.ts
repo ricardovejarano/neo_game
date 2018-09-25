@@ -6,6 +6,7 @@ interface NodeModule {
 
 
 interface JQuery {
-  roulette(roulette?: any): any;
+  <roulette>(options?: any): any;
 }
+
 
