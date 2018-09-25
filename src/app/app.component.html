@@ -37,16 +37,24 @@
 		</div>
 	</div>
 
-	<div class="text" *ngIf="isFinished">
+
+	<!-- SOUNDS FOR EVENTS -->
+	<div class="text" *ngIf="isLoser">
 		ding!
-		<audio src="assets/chime.mp3" autoplay></audio>
+		<audio src="assets/sad.mp3" autoplay></audio>
+	</div>
+
+	<div class="text" *ngIf="isWinner">
+		ding!
+		<audio src="assets/applause.mp3" autoplay></audio>
 	</div>
 
 	<div class="text" *ngIf="isPlay">
 		<audio src="assets/roulett.mp3" autoplay></audio>
 	</div>
+	<!-- FN SOUNDS -->
 
-	<!-- Modal -->
+
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 	 aria-hidden="true">
