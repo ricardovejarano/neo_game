@@ -30,7 +30,10 @@ body {
 			background-position: center;
 			background-size: cover;
 			.form-control{
-				max-width: 2rem;
+		    height: 3rem;
+			}
+			#btnplay{
+				border-top: 1px dashed #999;
 			}
 		}
 	}
