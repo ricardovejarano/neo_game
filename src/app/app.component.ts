@@ -10,6 +10,7 @@ declare var $: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  option;
 
   @ViewChild('In1') input1: ElementRef;
   @ViewChild('In2') input2: ElementRef;
@@ -39,6 +40,10 @@ export class AppComponent implements OnInit {
   winnerNumber2 = '';
   winnerNumber3 = '';
 
+  // 
+
+  stopImageNumberDinamyc = 0;
+
   constructor() {
   }
 
@@ -49,27 +54,17 @@ export class AppComponent implements OnInit {
 
   jqueryFunction() {
     $(document).ready(function () {
-      const option = {
-        speed: 10,
-        duration: 3,
-        stopImageNumber: 2,
-        startCallback: function () {
-          console.log('start');
-        },
-        slowDownCallback: function () {
-          console.log('slowDown');
-        },
-        stopCallback: function ($stopElm) {
-          console.log('stop');
-        }
+      this.option = {
+        speed: 2,
+        duration: 4,
+        stopImageNumber: this.stopImageNumberDinamyc,
       };
-      
-      const rouletter = $('div.roulette');
-       $('#playButton').click(function () {
-        $('div.roulette').roulette(option); 
-        // rouletter.roulette(option);
-      // rouletter.roulette(option);
-       });
+
+
+      $('#playButton').click(function () {
+        // $('div.roulette').roulette(this.option);
+
+      });
     });
   }
 
@@ -143,6 +138,19 @@ export class AppComponent implements OnInit {
   }
 
   play() {
+    this.option = {
+      speed: 30,
+      duration: 5,
+      stopImageNumber: this.stopImageNumberDinamyc,
+    };
+
+    $('div.roulette')
+      .roulette('option', this.option)
+      .roulette('start');
+    setTimeout(() => {
+      $('div.roulette').roulette('stop');
+    }, 5000);
+
     this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
       this.numbrer4.toString() + this.numbrer5.toString();
     console.log(this.completeCode);
