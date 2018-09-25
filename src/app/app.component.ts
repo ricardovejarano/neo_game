@@ -52,7 +52,7 @@ export class AppComponent implements OnInit {
       };
       const rouletter = $('div.roulette');
       $('#playButton').click(function () {
-        rouletter.roulette(option);
+        // rouletter.roulette(option);
       });
     });
   }
