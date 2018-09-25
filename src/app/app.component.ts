@@ -81,24 +81,36 @@ export class AppComponent implements OnInit {
   onSearchChange(value: number) {
     switch (value) {
       case 0:
-        // if (!this.numbrer2) {
-        this.input2.nativeElement.focus();
-        //  }
+        if (!this.numbrer2) {
+          this.input2.nativeElement.focus();
+        } else {
+          this.numbrer2 = '';
+          this.input2.nativeElement.focus();
+        }
         break;
       case 1:
-        //  if (!this.numbrer3) {
-        this.input3.nativeElement.focus();
-        // }
+        if (!this.numbrer3) {
+          this.input3.nativeElement.focus();
+        } else {
+          this.numbrer3 = '';
+          this.input3.nativeElement.focus();
+        }
         break;
       case 2:
-        //   if (!this.numbrer4) {
-        this.input4.nativeElement.focus();
-        //   }
+        if (!this.numbrer4) {
+          this.input4.nativeElement.focus();
+        } else {
+          this.numbrer4 = '';
+          this.input4.nativeElement.focus();
+        }
         break;
       case 3:
-        //   if (!this.numbrer5) {
-        this.input5.nativeElement.focus();
-        //  }
+        if (!this.numbrer5) {
+          this.input5.nativeElement.focus();
+        } else {
+          this.numbrer5 = '';
+          this.input5.nativeElement.focus();
+        }
         break;
       case 4:
         break;
@@ -125,13 +137,15 @@ export class AppComponent implements OnInit {
   play() {
     this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
       this.numbrer4.toString() + this.numbrer5.toString();
-      console.log(this.completeCode);
-      console.log(this.winnerNumber1, this.winnerNumber2, this.winnerNumber3);
+    console.log(this.completeCode);
+    console.log(this.winnerNumber1, this.winnerNumber2, this.winnerNumber3);
     if (this.completeCode !== this.winnerNumber1.toString() && this.completeCode !== this.winnerNumber2.toString() &&
       this.completeCode !== this.winnerNumber3.toString()) {
       console.log('Sigue intentando');
+      alert('Sigue intentando');
     } else {
       console.log('Numero ganador!!!');
+      alert('GANASTE!!');
     }
   }
 
