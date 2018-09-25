@@ -9,13 +9,6 @@
 					<img src="assets/intento.png" />
 					<img src="assets/viaje1.png" />
 					<img src="assets/viaje2.png" />
-					<img src="assets/intento.png" />
-					<img src="assets/intento.png" />
-					<img src="assets/intento.png" />
-					<img src="assets/intento.png" />
-					<img src="assets/intento.png" />
-					<img src="assets/intento.png" />
-					<img src="assets/intento.png" />
 				</div>
 			</div>
 			<div id="ticket" class="w-100 d-block py-5 px-4">
@@ -45,7 +38,24 @@
 		</div>
 	</div>
 
-	<!-- Modal -->
+
+	<!-- SOUNDS FOR EVENTS -->
+	<div class="text" *ngIf="isLoser">
+		ding!
+		<audio src="assets/sad.mp3" autoplay></audio>
+	</div>
+
+	<div class="text" *ngIf="isWinner">
+		ding!
+		<audio src="assets/applause.mp3" autoplay></audio>
+	</div>
+
+	<div class="text" *ngIf="isPlay">
+		<audio src="assets/roulett.mp3" autoplay></audio>
+	</div>
+	<!-- FN SOUNDS -->
+
+
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
 	 aria-hidden="true">

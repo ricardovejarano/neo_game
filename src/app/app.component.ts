@@ -10,7 +10,10 @@ declare var $: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   option;
+  isLoser = false;
+  isWinner = false;
 
   @ViewChild('In1') input1: ElementRef;
   @ViewChild('In2') input2: ElementRef;
@@ -28,7 +31,7 @@ export class AppComponent implements OnInit {
   adminPass = '';
   correctAdminPass = 'admin';
   flagAdmin = false;
-
+  isPlay = false;
   // Variables de premio
   premio1 = 'Sigue intentando 1';
   premio2 = 'Sigue intentando 2';
@@ -40,23 +43,20 @@ export class AppComponent implements OnInit {
   winnerNumber2 = '';
   winnerNumber3 = '';
 
-  // 
-
-  stopImageNumberDinamyc = 0;
 
   constructor() {
   }
 
   ngOnInit() {
     this.getWinnerNumbers();
-    this.jqueryFunction();
+    // this.jqueryFunction();
   }
 
   jqueryFunction() {
     $(document).ready(function () {
       this.option = {
         speed: 2,
-        duration: 4,
+        duration: 10,
         stopImageNumber: this.stopImageNumberDinamyc,
       };
 
@@ -79,6 +79,67 @@ export class AppComponent implements OnInit {
       this.winnerNumber3 = localStorage.getItem('winner3');
     }
   }
+
+  play() {
+    this.isPlay = true;
+    this.isWinner = false;
+    this.isLoser = false;
+
+    // completeCode has the code entry by the client
+    this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
+      this.numbrer4.toString() + this.numbrer5.toString();
+
+    // If is not the winner code  
+    if (this.completeCode !== this.winnerNumber1.toString() && this.completeCode !== this.winnerNumber2.toString() &&
+      this.completeCode !== this.winnerNumber3.toString()) {
+      console.log('Codigo incorrecto');
+      this.option = {
+        speed: 15,
+        duration: 7,
+        stopImageNumber: 0,
+      };
+
+      $('div.roulette')
+        .roulette('option', this.option)
+        .roulette('start');
+      setTimeout(() => {
+        $('div.roulette').roulette('stop');
+        this.isPlay = false;
+        this.isLoser = true;
+      }, 7000);
+
+    } else {
+      this.option = {
+        speed: 15,
+        duration: 7,
+        stopImageNumber: 2,
+      };
+
+      $('div.roulette')
+        .roulette('option', this.option)
+        .roulette('start');
+      setTimeout(() => {
+        $('div.roulette').roulette('stop');
+        this.isPlay = false;
+        this.isWinner = true;
+      }, 5000);
+      console.log('Numero ganador!!!');
+    }
+    this.numbrer1 = '';
+    this.numbrer2 = '';
+    this.numbrer3 = '';
+    this.numbrer4 = '';
+    this.numbrer5 = '';
+  }
+
+  winRoulete() {
+
+  }
+
+  loseRoulete() {
+
+  }
+
 
   onSearchChange(value: number) {
     switch (value) {
@@ -135,39 +196,6 @@ export class AppComponent implements OnInit {
     alert('Numeros guardados satisfactoriamente');
     this.adminPass = '';
     this.flagAdmin = false;
-  }
-
-  play() {
-    this.option = {
-      speed: 30,
-      duration: 5,
-      stopImageNumber: this.stopImageNumberDinamyc,
-    };
-
-    $('div.roulette')
-      .roulette('option', this.option)
-      .roulette('start');
-    setTimeout(() => {
-      $('div.roulette').roulette('stop');
-    }, 5000);
-
-    this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
-      this.numbrer4.toString() + this.numbrer5.toString();
-    console.log(this.completeCode);
-    console.log(this.winnerNumber1, this.winnerNumber2, this.winnerNumber3);
-    if (this.completeCode !== this.winnerNumber1.toString() && this.completeCode !== this.winnerNumber2.toString() &&
-      this.completeCode !== this.winnerNumber3.toString()) {
-      console.log('Sigue intentando');
-      alert('Sigue intentando');
-    } else {
-      console.log('Numero ganador!!!');
-      alert('GANASTE!!');
-    }
-    this.numbrer1 = '';
-    this.numbrer2 = '';
-    this.numbrer3 = '';
-    this.numbrer4 = '';
-    this.numbrer5 = '';
   }
 
 }
