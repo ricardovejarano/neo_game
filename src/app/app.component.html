@@ -67,7 +67,7 @@
 					<form (ngSubmit)="saveNumbers()" #numberForm="ngForm">
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label">Numero uno:</label>
-							<input pattern="[0-9]*" maxlength="5" minlength="5" 
+							<input pattern="[0-9]*" maxlength="5" minlength="5" id="int9"
 							type="number" class="form-control col mr-2"
 							 [(ngModel)]="winnerNumber1" name="winnerNumber1" type="text" id="recipient-name">
 						</div>

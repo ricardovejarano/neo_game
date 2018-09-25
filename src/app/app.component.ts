@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
   @ViewChild('In3') input3: ElementRef;
   @ViewChild('In4') input4: ElementRef;
   @ViewChild('In5') input5: ElementRef;
-  @ViewChild('In6') btn6: ElementRef;
   numbrer1;
   numbrer2;
   numbrer3;
@@ -114,8 +113,7 @@ export class AppComponent implements OnInit {
         }
         break;
       case 4:
-        console.log('ENTRA');
-        this.btn6.nativeElement.focus();
+        this.input1.nativeElement.focus();
         break;
     }
   }
