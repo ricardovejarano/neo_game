@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class AppComponent implements OnInit {
   option;
-
+  isFinished = false;
   @ViewChild('In1') input1: ElementRef;
   @ViewChild('In2') input2: ElementRef;
   @ViewChild('In3') input3: ElementRef;
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   adminPass = '';
   correctAdminPass = 'admin';
   flagAdmin = false;
-
+  isPlay = false;
   // Variables de premio
   premio1 = 'Sigue intentando 1';
   premio2 = 'Sigue intentando 2';
@@ -49,14 +49,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getWinnerNumbers();
-    this.jqueryFunction();
+    // this.jqueryFunction();
   }
 
   jqueryFunction() {
     $(document).ready(function () {
       this.option = {
         speed: 2,
-        duration: 4,
+        duration: 10,
         stopImageNumber: this.stopImageNumberDinamyc,
       };
 
@@ -138,18 +138,8 @@ export class AppComponent implements OnInit {
   }
 
   play() {
-    this.option = {
-      speed: 30,
-      duration: 5,
-      stopImageNumber: this.stopImageNumberDinamyc,
-    };
-
-    $('div.roulette')
-      .roulette('option', this.option)
-      .roulette('start');
-    setTimeout(() => {
-      $('div.roulette').roulette('stop');
-    }, 5000);
+    this.isPlay = true;
+    this.isFinished = false;
 
     this.completeCode = this.numbrer1.toString() + this.numbrer2.toString() + this.numbrer3.toString() +
       this.numbrer4.toString() + this.numbrer5.toString();
@@ -158,8 +148,36 @@ export class AppComponent implements OnInit {
     if (this.completeCode !== this.winnerNumber1.toString() && this.completeCode !== this.winnerNumber2.toString() &&
       this.completeCode !== this.winnerNumber3.toString()) {
       console.log('Sigue intentando');
-      alert('Sigue intentando');
+      this.option = {
+        speed: 30,
+        duration: 10,
+        stopImageNumber: 0,
+      };
+
+      $('div.roulette')
+        .roulette('option', this.option)
+        .roulette('start');
+      setTimeout(() => {
+        $('div.roulette').roulette('stop');
+        this.isPlay = false;
+        this.isFinished = true;
+      }, 5000);
+      // alert('Sigue intentando');
     } else {
+      this.option = {
+        speed: 30,
+        duration: 10,
+        stopImageNumber: 2,
+      };
+
+      $('div.roulette')
+        .roulette('option', this.option)
+        .roulette('start');
+      setTimeout(() => {
+        $('div.roulette').roulette('stop');
+        this.isPlay = false;
+        this.isFinished = true;
+      }, 5000);
       console.log('Numero ganador!!!');
       alert('GANASTE!!');
     }
