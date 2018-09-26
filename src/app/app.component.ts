@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   @ViewChild('In3') input3: ElementRef;
   @ViewChild('In4') input4: ElementRef;
   @ViewChild('In5') input5: ElementRef;
+  @ViewChild('In10') inputHidden: ElementRef;
   numbrer1;
   numbrer2;
   numbrer3;
@@ -132,15 +133,6 @@ export class AppComponent implements OnInit {
     }
   }
 
-  winRoulete() {
-
-  }
-
-  loseRoulete() {
-
-  }
-
-
   onSearchChange(value: number) {
     switch (value) {
       case 0:
@@ -180,7 +172,27 @@ export class AppComponent implements OnInit {
         }
         break;
       case 4:
-        this.input1.nativeElement.focus();
+        this.input5.nativeElement.blur();
+        break;
+    }
+  }
+
+  onFocus(value: Number) {
+    switch (value) {
+      case 0:
+        this.numbrer1 = '';
+        break;
+      case 1:
+        this.numbrer2 = '';
+        break;
+      case 2:
+        this.numbrer3 = '';
+        break;
+      case 3:
+        this.numbrer4 = '';
+        break;
+      case 4:
+        this.numbrer5 = '';
         break;
     }
   }
