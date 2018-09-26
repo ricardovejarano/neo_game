@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
   @ViewChild('In3') input3: ElementRef;
   @ViewChild('In4') input4: ElementRef;
   @ViewChild('In5') input5: ElementRef;
-  @ViewChild('In10') inputHidden: ElementRef;
   numbrer1;
   numbrer2;
   numbrer3;

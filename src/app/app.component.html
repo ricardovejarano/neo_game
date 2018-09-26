@@ -30,7 +30,6 @@
 						 type="number" id="numero4" class="form-control col mr-2">
 						<input [(ngModel)]="numbrer5" name="numbrer5" required #In5 pattern="[0-9]*" maxlength="1" (focus)="onFocus(4)" (input)="onSearchChange(4)"
 						 type="number" id="numero5" class="form-control col mr-2">
-						 <input #In10 hidden>
 					</div>
 					<div id="btnplay" class="input-group mt-5">
 						<button #In6 [disabled]="!playForm.form.valid || isPlay == true" id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
