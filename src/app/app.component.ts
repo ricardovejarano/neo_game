@@ -88,11 +88,12 @@ export class AppComponent implements OnInit {
     // If is not the winner code  
     if (this.completeCode !== this.winnerNumber1.toString() && this.completeCode !== this.winnerNumber2.toString() &&
       this.completeCode !== this.winnerNumber3.toString()) {
-      console.log('Codigo incorrecto');
+      const randomLose = Math.floor(Math.random() * ((4 - 1) + 1) + 1);
+      console.log('Codigo incorrecto', randomLose);
       this.option = {
         speed: 15,
         duration: 7,
-        stopImageNumber: 0,
+        stopImageNumber: randomLose,
       };
 
       $('div.roulette')
@@ -100,18 +101,23 @@ export class AppComponent implements OnInit {
         .roulette('start');
       setTimeout(() => {
         // $('div.roulette').roulette('stop');
+        if (randomLose !== 4) {
+          this.isLoser = true;
+        } else {
+          this.isWinner = true;
+        }
         this.isPlay = false;
-        this.isLoser = true;
+
       }, 7000);
 
     } else {
 
-      const random = Math.floor(Math.random() * (2 - 1 + 2) + 1);
-
+      const randomWin = Math.floor(Math.random() * ((6 - 5) + 1) + 5);
+      console.log('Codigo correcto', randomWin);
       this.option = {
         speed: 15,
         duration: 7,
-        stopImageNumber: random,
+        stopImageNumber: randomWin,
       };
 
       $('div.roulette')

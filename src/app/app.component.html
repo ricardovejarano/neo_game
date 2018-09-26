@@ -7,6 +7,10 @@
 			<div id="premios" class="mb-3">
 				<div class="roulette" style="overflow: hidden;">
 					<img src="assets/intento.png" />
+					<img src="assets/intento.png" />
+					<img src="assets/intento.png" />
+					<img src="assets/intento.png" />
+					<img src="assets/intento2.png" />
 					<img src="assets/viaje1.png" />
 					<img src="assets/viaje2.png" />
 				</div>
@@ -28,7 +32,7 @@
 						 type="number" id="numero5" class="form-control col mr-2">
 					</div>
 					<div id="btnplay" class="input-group mt-5">
-						<button #In6 [disabled]="!playForm.form.valid" id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
+						<button #In6 [disabled]="!playForm.form.valid || isPlay == true" id="playButton" type="submit" class="btn btn-block btn-success mt-5">JUGAR</button>
 					</div>
 				</form>
 			</div>
